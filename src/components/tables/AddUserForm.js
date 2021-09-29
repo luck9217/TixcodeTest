@@ -12,7 +12,6 @@ const AddUserForm = (props) => {
   }
 
  
-
   const[agregarok, setAgregarok]=useState(false);
 
   const[inputdatarandom,setInputdatarandom]=useState("");
@@ -20,14 +19,11 @@ const AddUserForm = (props) => {
 
 
   useEffect((agregarok) => {
-    
-    
+        
     
     const apifunction = async () => {
       
       if(agregarok===false) return;
-
-      
       
 
       const rand =  Math.floor(Math.random()*200)+1;
@@ -51,10 +47,6 @@ const AddUserForm = (props) => {
          },[agregarok]
                      
                          )
-
-
-
-
   return (
     <form
       onSubmit={(event) => {
@@ -76,6 +68,7 @@ const AddUserForm = (props) => {
       <input
         type="text"
         name="mail"
+        placeholder="usuario@mail.com"
         value={user.mail}
         onChange={handleInputChange}
       />
