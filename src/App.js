@@ -10,16 +10,9 @@ const App = () => {
     { id: 3, mail: 'asda@gmail.com', edad: '15',datarandom:'random',datecreation:'01/02/2003' },
   ]
 
-  // const initialFormState = {id:null, mail: '', edad: '',datarandom:'',datecreation:'' }
 
   //Setting state
   const [users, setUsers] = useState(usersData)
-
-  // const [randonapi, setRandonapi]= useState ('');
-  // const [dateapi, setDateapi]= useState ('');
-  // const [ currentUser, setCurrentUser ] = useState(initialFormState)
-
-
 
   //CRUD operations
   const addUser = (user) => {
