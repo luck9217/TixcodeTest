@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import UserTable from './components/tables/UserTable'
 import AddUserForm from './components/tables/AddUserForm'
-import axios from 'axios';
+
 
 const App = () => {
   const usersData = [
@@ -14,7 +14,12 @@ const App = () => {
 
   //Setting state
   const [users, setUsers] = useState(usersData)
+
+  // const [randonapi, setRandonapi]= useState ('');
+  // const [dateapi, setDateapi]= useState ('');
   // const [ currentUser, setCurrentUser ] = useState(initialFormState)
+
+
 
   //CRUD operations
   const addUser = (user) => {
@@ -28,35 +33,8 @@ const App = () => {
 		setUsers(users.filter(user => user.id !== id))
 	}
 
-  useEffect(() => {
-    if(addUser) {
 
-       console.log("click")
-
-       const apifunction = async () => {
-
-        const rand =  Math.floor(Math.random()*200)+1;
-        
-      //   //evitamos la ejecucion la primera vez
-      // if(moneda==='')return;
   
-      //consultar la api para obetener la cotizacion
-      const url=`https://rickandmortyapi.com/api/character/${rand}`;
-      
-      const resultado= await axios.get(url);
-  
-        //guardar cotizacion
-      console.log(resultado.data.created);
-      console.log(resultado.data.location.name);
-      console.log(resultado)
-         
-       }
-  
-       apifunction();
-
-      }
-    }
-  )
 
 
   return (
@@ -64,7 +42,6 @@ const App = () => {
  
       <div className="flex-row">
         <div className="flex-large">
-
           
           <h2>Add New Register</h2>
           <AddUserForm addUser={addUser} />
