@@ -4,17 +4,30 @@ import AddUserForm from './components/tables/AddUserForm'
 
 const App = () => {
   const usersData = [
-    { id: 1, name: 'Tania', username: 'floppydiskette' },
-    { id: 2, name: 'Craig', username: 'siliconeidolon' },
-    { id: 3, name: 'Ben', username: 'benisphere' },
+    { id: 1, mail: 'hola@gmail.com', edad: '15',datarandom:'random',datecreation:'01/02/2003' },
+    { id: 2, mail: 'asdad@gmail.com', edad: '15',datarandom:'random',datecreation:'01/02/2003' },
+    { id: 3, mail: 'asda@gmail.com', edad: '15',datarandom:'random',datecreation:'01/02/2003' },
   ]
 
-  const [users, setUsers] = useState(usersData)
+  const initialFormState = {id:null, mail: '', edad: '',datarandom:'',datecreation:'' }
 
+  //Setting state
+  const [users, setUsers] = useState(usersData)
+  const [ currentUser, setCurrentUser ] = useState(initialFormState)
+
+  //CRUD operations
   const addUser = (user) => {
     user.id = users.length + 1
     setUsers([...users, user])
   }
+
+  const deleteUser = id => {
+		
+
+		setUsers(users.filter(user => user.id !== id))
+	}
+
+
 
   return (
     <div className="container">
@@ -28,7 +41,7 @@ const App = () => {
         </div>
         <div className="flex-large">
           <h2>View Register</h2>
-          <UserTable users={users} />
+          <UserTable users={users} deleteUser={deleteUser} />
         </div>
       </div>
     </div>

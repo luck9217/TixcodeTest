@@ -19,14 +19,20 @@ const UserTable = (props) => (
             <td>{user.datarandom}</td>
             <td>{user.datecreation}</td>
             <td>
-              <button className="button muted-button">Edit</button>
-              <button className="button muted-button">Delete</button>
+              
+                    <button 
+                         onClick={() => props.deleteUser(user.id)}   
+                         className="button muted-button"
+                
+                         >Delete
+                    
+                    </button>
             </td>
           </tr>
         ))
       ) : (
         <tr>
-          <td colSpan={3}>No users</td>
+          <td colSpan={3}>No data</td>
         </tr>
       )}
     </tbody>
