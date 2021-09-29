@@ -35,17 +35,20 @@ const App = () => {
 
        const apifunction = async () => {
 
+        const rand =  Math.floor(Math.random()*200)+1;
+        
       //   //evitamos la ejecucion la primera vez
       // if(moneda==='')return;
   
       //consultar la api para obetener la cotizacion
-      const url=`https://rickandmortyapi.com/api/character/10`;
+      const url=`https://rickandmortyapi.com/api/character/${rand}`;
       
       const resultado= await axios.get(url);
   
         //guardar cotizacion
-      console.log(resultado.data);
-     
+      console.log(resultado.data.created);
+      console.log(resultado.data.location.name);
+      console.log(resultado)
          
        }
   
