@@ -19,7 +19,7 @@ const AddUserForm = (props) => {
   const[inputddatecreation,setInputdatecreation]=useState("");
 
 
-  useEffect(() => {
+  useEffect((agregarok) => {
     
     
     
@@ -61,6 +61,7 @@ const AddUserForm = (props) => {
         event.preventDefault()
         if (!user.mail || !user.edad) return
 
+        setAgregarok(true)
         
         user.datecreation= inputddatecreation
         user.datarandom= inputdatarandom
@@ -69,7 +70,6 @@ const AddUserForm = (props) => {
    
         props.addUser(user)
         setUser(initialFormState)
-        setAgregarok(true)
       }}
     >
       <label>Mail</label>
